@@ -1,0 +1,29 @@
+{
+  "name": "tbtc-ln-relayer",
+  "version": "1.0.0",
+  "description": "Sat-denominated tx relay for tBTC",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/corollari/tbtc-ln-relayer.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/corollari/tbtc-ln-relayer/issues"
+  },
+  "homepage": "https://github.com/corollari/tbtc-ln-relayer#readme",
+  "dependencies": {
+    "@openzeppelin/network": "^0.4.3"
+  },
+  "devDependencies": {
+    "@openzeppelin/cli": "^2.8.2",
+    "@openzeppelin/contracts-ethereum-package": "^3.0.0",
+    "@openzeppelin/gsn-helpers": "^0.2.4",
+    "@openzeppelin/upgrades": "^2.8.0",
+    "ganache-cli": "^6.12.1"
+  }
+}
