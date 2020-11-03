@@ -3,6 +3,7 @@ pragma solidity ^0.6.0;
 import "@openzeppelin/contracts-ethereum-package/contracts/GSN/GSNRecipient.sol";
 
 contract Forwarder is GSNRecipientUpgradeSafe {
+    address public tBTContract;
     address public sender;
 
     constructor(address _sender) public {
@@ -38,6 +39,18 @@ contract Forwarder is GSNRecipientUpgradeSafe {
         require(msg.sender == sender);
         msg.sender.transfer(address(this).balance);
     }
-    
-    
+
+    fallback() external payable {
+        assembly {
+            let _target := sload(0)
+            calldatacopy(0, 0, calldatasize())
+            let result := call(gas(), _target, callvalue(), 0, calldatasize(), 0, 0)
+            returndatacopy(0, 1, returndatasize())
+            switch result
+            // call returns 0 on error.
+            case 0 { revert(0, returndatasize()) }
+            default { return(0, returndatasize()) }
+        }
+
+    }
 }
