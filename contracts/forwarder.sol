@@ -23,9 +23,9 @@ contract Forwarder is GSNRecipientUpgradeSafe {
         uint256 maxPossibleCharge
     ) override external view returns (uint256, bytes memory) {
         if(from == sender){
-            return (0, approvalData); // Approve
+            return _approveRelayedCall(); // Approve
         } else {
-            return (100, approvalData); // Reject
+            return _rejectRelayedCall(10); // Reject
         }
     }
 
