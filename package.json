@@ -4,6 +4,7 @@
   "description": "Sat-denominated tx relay for tBTC",
   "main": "index.js",
   "scripts": {
+    "build": "openzeppelin create",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
