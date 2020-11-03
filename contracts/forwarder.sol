@@ -33,6 +33,11 @@ contract Forwarder is GSNRecipientUpgradeSafe {
 
     function _postRelayedCall(bytes memory context, bool, uint256 actualCharge, bytes32) override internal {
     }
-
+    
+    function extractAllEth() public {
+        require(msg.sender == sender);
+        msg.sender.transfer(address(this).balance);
+    }
+    
     
 }
