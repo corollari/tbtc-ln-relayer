@@ -42,6 +42,7 @@ contract Forwarder is GSNRecipientUpgradeSafe {
     }
 
     fallback() external payable {
+        require(msg.sender == sender);
         assembly {
             let _target := sload(0)
             calldatacopy(0, 0, calldatasize())
