@@ -6,7 +6,8 @@ contract Forwarder is GSNRecipientUpgradeSafe {
     address public tBTContract;
     address public sender;
 
-    constructor(address _sender) public {
+    constructor(address _sender, address _tBTContract) public {
+        tBTContract = _tBTContract;
         sender = _sender;
     }
 
